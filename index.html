@@ -389,7 +389,7 @@
         button.setAttribute('aria-current', selectedIndex === index ? 'step' : 'false');
         button.innerHTML = `
           <span class="scenario-index">${clip.completed ? '✓' : index + 1}</span>
-          <h3>Scenario ${index + 1}</h3>
+          <h3>Video ${index + 1}</h3>
           <span class="scenario-status">${clip.completed ? 'Completed — replay available' : unlocked ? (clip.position > 0 ? 'Resume available' : 'Ready to begin') : 'Locked'}</span>
         `;
         button.addEventListener('click', () => selectScenario(index));
@@ -408,8 +408,8 @@
       audio.playbackRate = 1;
       audio.defaultPlaybackRate = 1;
       playPause.textContent = 'Play';
-      playPause.setAttribute('aria-label', `Play scenario ${selectedIndex + 1}`);
-      nowPlaying.textContent = `Scenario ${selectedIndex + 1}`;
+      playPause.setAttribute('aria-label', `Play Video ${selectedIndex + 1}`);
+      nowPlaying.textContent = `Video ${selectedIndex + 1}`;
       currentTimeEl.textContent = formatTime(state.clips[selectedIndex].position);
       durationEl.textContent = '--:--';
       maxAllowedTime = Math.max(0, state.clips[selectedIndex].position);
@@ -420,7 +420,7 @@
 
     function selectScenario(index) {
       if (index > state.currentClip && !state.clips[index].completed) {
-        setMessage('Finish the current scenario before continuing.', 'warning');
+        setMessage('Finish the current videos before continuing.', 'warning');
         return;
       }
       if (!audio.paused) audio.pause();
@@ -445,7 +445,7 @@
       if (!allAudioComplete()) {
         pill.textContent = 'Locked';
         pill.classList.remove('ready');
-        area.innerHTML = '<div class="locked-panel">Finish all four video scenarios in order to unlock the knowledge check.</div>';
+        area.innerHTML = '<div class="locked-panel">Finish the video presentation in order to unlock the knowledge check.</div>';
         return;
       }
       pill.textContent = state.quizPassed ? 'Passed — 100%' : 'Ready';
@@ -527,7 +527,7 @@
         pill.textContent = 'Locked';
         pill.classList.remove('ready');
         area.className = 'locked-panel';
-        area.textContent = 'Complete the video path and pass the knowledge check to unlock your certificate.';
+        area.textContent = 'Complete the video and pass the knowledge check to unlock your certificate.';
         return;
       }
       pill.textContent = 'Unlocked';
