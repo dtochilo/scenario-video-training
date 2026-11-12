@@ -92,6 +92,8 @@
     .message.error { color: var(--red); }
     .message.warning { color: var(--amber); }
 
+    .download-link { display: inline-block; text-decoration: none; }
+
     .locked-panel { border: 1px dashed rgba(255,255,255,.18); background: rgba(255,255,255,.02); border-radius: 18px; padding: 22px; color: var(--muted); }
     .quiz-form { display: grid; gap: 16px; }
     fieldset { margin: 0; min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
@@ -186,6 +188,19 @@
       </div>
       <p class="message" id="audioMessage" aria-live="polite"></p>
     </section>
+
+
+  <section class="section" id="deckSection" aria-labelledby="deckHeading">
+    <div class="section-head">
+      <div>
+        <h2 id="deckHeading">Training deck</h2>
+        <p>Download the slides as a PDF for reference.</p>
+      </div>
+    </div>
+    <a class="primary download-link" href="./Service_Desk_Social_Engineering_Awareness_Training.pdf" download>Download the training deck (PDF)</a>
+  </section>
+
+
 
     <section class="section" aria-labelledby="quizHeading">
       <div class="section-head">
