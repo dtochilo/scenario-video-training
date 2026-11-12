@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Social Engineering Awareness Training Part 1</title>
+  <title>Social Engineering Awareness Training Video Presentation</title>
   <style>
     :root {
       --ink: #f5f7fb;
@@ -144,7 +144,7 @@
     <header class="topbar">
       <div>
         <div class="eyebrow">Guided learning path</div>
-        <h1>Insight Social Engineering Awareness Training Part 1</h1>
+        <h1>Insight Social Engineering Awareness Training Video Presentation</h1>
         <p class="lead">Complete the video presentation, then earn 100% on the knowledge check to unlock your certificate.</p>
       </div>
       <button class="reset-link" id="resetProgress" type="button">Reset all progress</button>
@@ -167,7 +167,7 @@
         <span class="pill" id="audioStatusPill">In progress</span>
       </div>
 
-      <div class="scenario-grid" id="scenarioGrid" aria-label="Training scenarios"></div>
+      <div class="scenario-grid" id="scenarioGrid" aria-label="Video Presentation"></div>
 
       <video id="audio" class="video-frame" preload="metadata" playsinline
              controlslist="nodownload noplaybackrate noremoteplayback nofullscreen"
@@ -202,7 +202,7 @@
       <div class="section-head">
         <div>
           <h2 id="certificateHeading">3. Certificate of completion</h2>
-          <p>Available only after all four scenarios and a perfect quiz score.</p>
+          <p>Available only after the entire video presenation is played and a perfect quiz score.</p>
         </div>
         <span class="pill" id="certificateStatusPill">Locked</span>
       </div>
@@ -236,27 +236,27 @@
     // Keep correct as the zero-based index of the correct option.
     const QUESTIONS = [
       {
-        prompt: 'Which of the following is the strongest red flag during an urgent password reset call?',
-        options: ['A) The caller greets the agent politely, provides their employee ID, and waits patiently on hold', 'B) The caller refuses to use standard verification methods, has loud background noise to simulate chaos, and demands the password be sent to a personal email', 'C) The caller asks if the help desk is open during holidays and requests a password policy guide', 'D) The caller calls from their registered desk extension and confirms their manager\'s name'],
+        prompt: 'A caller says they\'re a client executive and demands an immediate MFA reset because their phone was stolen. What should you do?',
+        options: ['A) Reset MFA because the caller knows the executive\'s name', 'B) Verify identity through approved independent methods and use the escalation process if needed', 'C) Send a reset link to the new email address provided by the caller', 'D) Ask the caller to provide more personal details and proceed'],
         correct: 1
       },
       {
-        prompt: 'What is the main security risk of creating a contractor account without formal documentation or a submitted ticket?',
-        options: ['A) The contractor might receive too many welcome emails', 'B) An unauthorized outsider could gain legitimate network access without an audit trail or manager approval', 'C) The HR department will have to pay the contractor overtime', 'D) The new account will automatically delete existing employee accounts'],
-        correct: 1
-      },
-      {
-        prompt: 'If someone claiming to be an executive calls from an unknown number requesting sensitive account changes, how should you verify their identity?',
-        options: [' A) Call back the exact phone number that appeared on your Caller ID', ' B) Call the phone number the caller provides during the conversation', ' C) Look up the executive\'s official phone number in the internal company directory and call that number directly', ' D) Ask the caller to verify the last four digits of the company\'s tax ID'],
+        prompt: 'Which behavior is the strongest red flag indicating a potential impersonation attack?',
+        options: ['A) A user asks for help through an established support channel', 'B) A caller agrees to the normal callback and verification process', 'C) The caller refuses to use standard verification methods, has loud background noise to simulate chaos, and demands the password be sent to a personal email', 'D) A user provides their employee ID during verification'],
         correct: 2
       },
       {
-        prompt: 'How do attackers combine social engineering with MFA fatigue to bypass authentication?',
-        options: ['A) They mail a new smartphone to the victim\'s home address', 'B) They call the help desk posing as a user, claiming they are getting too many MFA requests and ask to disable MFA for their account', 'C) They ask the user to uninstall their antivirus software', 'D) They send a calendar invite that automatically disables MFA'],
+        prompt: 'What is "callback manipulation" in an executive impersonation attack?',
+        options: [' A) Asking the executive to call the help desk back during normal business hours', ' B) Persuading the agent to verify the request by calling a phone number provided by the attacker rather than an official directory number', ' C) Hanging up on a customer or placing them on hold indefinitely', ' D) Using automated robocalls to flood the company\'s main switchboard'],
         correct: 1
       },
       {
-        prompt: 'What should a help desk agent do when a caller claims an impending crisis requires an immediate password reset without verification?',
+        prompt: 'A caller claims he is traveling and can\'t access their normal email and asks you to send a password reset link to a personal address. What should you do?',
+        options: ['A) Send the link to the personal address since they\'re locked out', 'B) Reset the password over the phone to save the traveler time', 'C) Proceed if the caller can name their manager', 'D) Follow documented identity verification or escalate  don\'t rely on requester-provided details or reset any account prior to verification'],
+        correct: 3
+      },
+      {
+        prompt: 'A caller asks for employee usernames, device details, and ticket history “to complete a quick audit.” What should you do?',
         options: [' A) Reset the password immediately to prevent business disruption and verify them later', 'B) Ask the caller for their current password to confirm they own the account', 'C) Email the new temporary password to whatever personal email address the caller provides', 'D)  Remain calm, follow standard verification procedures strictly, and escalate if any inconsistent behavior is detected'],
         correct: 3
       }
