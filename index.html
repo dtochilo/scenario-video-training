@@ -161,7 +161,7 @@
     <section class="section" aria-labelledby="audioHeading">
       <div class="section-head">
         <div>
-          <h2 id="audioHeading">1. Watch every scenario - select the scenario and click the Play button</h2>
+          <h2 id="audioHeading">1. Watch the video presentation seelct the file and click the Play button</h2>
           <p>Fast-forwarding and skipping are disabled. Your validated viewing position is saved on this device.</p>
         </div>
         <span class="pill" id="audioStatusPill">In progress</span>
@@ -229,11 +229,8 @@
     const COURSE_VERSION = 1;
     const STORAGE_KEY = 'scenario-video-training-v1';
     const AUDIO_FILES = [
-      './Scenario_1_Success.mp4',
-      './Scenario_2_Success.mp4',
-      './Scenario_3_Success.mp4',
-      './Scenario_4_Success.mp4'
-    ];
+      './Training_Recording.mp4',
+     ];
 
     // Replace these procedural questions with content-specific questions if desired.
     // Keep correct as the zero-based index of the correct option.
@@ -345,8 +342,9 @@
     }
 
     function completionPercent() {
-      const audioWeight = state.clips.filter(c => c.completed).length * 20;
-      return Math.min(100, audioWeight + (state.quizPassed ? 20 : 0));
+      const done = state.clips.filter(c => c.completed).length;
+      const videoPart = Math.round((done / AUDIO_FILES.length) * 80);
+      return Math.min(100, videoPart + (state.quizPassed ? 20 : 0));
     }
 
     function renderOverall() {
@@ -354,7 +352,7 @@
       const percent = completionPercent();
       document.getElementById('overallLabel').textContent = state.quizPassed
         ? 'Training complete — certificate unlocked'
-        : `${completeCount} of 4 scenarios complete`;
+        : `${completeCount} of ${AUDIO_FILES.length} video training modules complete`;
       document.getElementById('overallPercent').textContent = `${percent}%`;
       const meter = document.getElementById('overallMeter');
       meter.setAttribute('aria-valuenow', String(percent));
